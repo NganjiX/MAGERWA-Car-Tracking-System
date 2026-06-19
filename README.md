@@ -1,119 +1,266 @@
-📦 MAGERWA Vehicle Tracking System
-A premium vehicle management system for MAGERWA, Rwanda's public bonded warehouse.
+# 🚛 MAGERWA Vehicle Tracking System
 
-✨ Features
-Admin Authentication - Signup/Login with secure sessions
+A premium vehicle management system for **MAGERWA (Magasins Généraux du Rwanda)**, Rwanda's public bonded warehouse. The system enables administrators to manage clients, vehicles, and vehicle-client associations through a modern and responsive dashboard.
 
-Client Management - CRUD operations with search
+---
 
-Vehicle Management - CRUD operations with search
+## ✨ Features
 
-Vehicle-Client Linking - Link vehicles with unique plate numbers
+### 🔐 Authentication
 
-Premium Dashboard - Real-time stats and activity feed
+* Admin Registration (Signup)
+* Admin Login
+* Secure Session Management
 
-Modern UI - Glassmorphism, animations, responsive design
+### 👥 Client Management
 
-🛠️ Tech Stack
-PHP 7.4+
+* Create, Read, Update, Delete (CRUD) Clients
+* Search and Filter Clients
+* Pagination Support
 
-MySQL 8.0
+### 🚗 Vehicle Management
 
-Bootstrap 5.1
+* Create, Read, Update, Delete (CRUD) Vehicles
+* Search and Filter Vehicles
+* Pagination Support
 
-jQuery 3.6
+### 🔗 Vehicle–Client Linking
 
-Font Awesome 6
+* Link Vehicles to Clients
+* Unique Plate Number Management
+* Update Vehicle Associations
+* Unlink Vehicles
 
-📥 Installation
-1. Clone or Download
-bash
+### 📊 Dashboard
+
+* Real-Time Statistics
+* Activity Feed
+* Quick Overview Cards
+
+### 🎨 Modern User Interface
+
+* Responsive Design
+* Bootstrap 5 Integration
+* Glassmorphism Effects
+* Smooth Animations
+* User-Friendly Navigation
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology   | Version |
+| ------------ | ------- |
+| PHP          | 7.4+    |
+| MySQL        | 8.0+    |
+| Bootstrap    | 5.1     |
+| jQuery       | 3.6     |
+| Font Awesome | 6       |
+
+---
+
+## 📂 Project Structure
+
+```text
+vehicle-tracking-system/
+│
+├── api/                # REST API Endpoints
+├── assets/             # CSS, JavaScript, Images
+├── config/             # Database Configuration
+├── includes/           # Helper Functions
+├── pages/              # Frontend Pages
+├── sql/                # Database Schema
+└── index.php           # Application Entry Point
+```
+
+---
+
+## 📥 Installation
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/YOUR_USERNAME/vehicle-tracking-system.git
-2. Move to Web Server Root
-XAMPP: C:\xampp\htdocs\
+```
 
-WAMP: C:\wamp\www\
+### 2. Move Project to Your Web Server Root
 
-MAMP: /Applications/MAMP/htdocs/
+#### XAMPP
 
-3. Update Database Config
-Edit config/database.php:
+```text
+C:\xampp\htdocs\
+```
 
-php
+#### WAMP
+
+```text
+C:\wamp\www\
+```
+
+#### MAMP
+
+```text
+/Applications/MAMP/htdocs/
+```
+
+---
+
+### 3. Configure the Database
+
+Open:
+
+```php
+config/database.php
+```
+
+Update the database credentials:
+
+```php
 private $host = 'localhost';
 private $db_name = 'magerwa_vehicle_tracking';
 private $username = 'root';
 private $password = '';
-4. Import Database
-Run sql/database.sql in phpMyAdmin or MySQL CLI.
+```
 
-5. Access Application
-text
+---
+
+### 4. Import the Database
+
+Import the SQL schema located at:
+
+```text
+sql/database.sql
+```
+
+You can import it using:
+
+* phpMyAdmin
+* MySQL Workbench
+* MySQL CLI
+
+---
+
+### 5. Launch the Application
+
+Open your browser and navigate to:
+
+```text
 http://localhost/vehicle-tracking-system/
-🗄️ Database Structure
-admins - Admin accounts
+```
 
-clients - Client information
+---
 
-vehicles - Vehicle details
+## 🗄️ Database Structure
 
-vehicle_links - Vehicle-Client associations with plate numbers
+### admins
 
-📁 Project Structure
-text
-vehicle-tracking-system/
-├── api/           # API endpoints
-├── assets/        # CSS, JS
-├── config/        # Database config
-├── includes/      # Helper functions
-├── pages/         # Frontend pages
-├── sql/           # Database schema
-└── index.php      # Entry point
-📚 API Endpoints
-Authentication
-POST /api/auth.php?action=signup - Register admin
+Stores administrator accounts.
 
-POST /api/auth.php?action=login - Admin login
+### clients
 
-Clients
-GET /api/clients.php - Get clients (paginated)
+Stores client information.
 
-POST /api/clients.php - Create client
+### vehicles
 
-PUT /api/clients.php?id=1 - Update client
+Stores vehicle records.
 
-DELETE /api/clients.php?id=1 - Delete client
+### vehicle_links
 
-Vehicles
-GET /api/vehicles.php - Get vehicles (paginated)
+Stores vehicle-client associations and plate numbers.
 
-POST /api/vehicles.php - Create vehicle
+---
 
-PUT /api/vehicles.php?id=1 - Update vehicle
+## 📚 API Documentation
 
-DELETE /api/vehicles.php?id=1 - Delete vehicle
+### Authentication
 
-Links
-GET /api/links.php - Get linked vehicles
+| Method | Endpoint                      | Description    |
+| ------ | ----------------------------- | -------------- |
+| POST   | `/api/auth.php?action=signup` | Register Admin |
+| POST   | `/api/auth.php?action=login`  | Login Admin    |
 
-GET /api/links.php?available=true - Get available vehicles
+---
 
-POST /api/links.php - Link vehicle
+### Clients
 
-PUT /api/links.php?id=1 - Update plate
+| Method | Endpoint                | Description   |
+| ------ | ----------------------- | ------------- |
+| GET    | `/api/clients.php`      | Get Clients   |
+| POST   | `/api/clients.php`      | Create Client |
+| PUT    | `/api/clients.php?id=1` | Update Client |
+| DELETE | `/api/clients.php?id=1` | Delete Client |
 
-DELETE /api/links.php?id=1 - Unlink vehicle
+---
 
-🤝 Contributing
-Fork the repository
+### Vehicles
 
-Create a feature branch
+| Method | Endpoint                 | Description    |
+| ------ | ------------------------ | -------------- |
+| GET    | `/api/vehicles.php`      | Get Vehicles   |
+| POST   | `/api/vehicles.php`      | Create Vehicle |
+| PUT    | `/api/vehicles.php?id=1` | Update Vehicle |
+| DELETE | `/api/vehicles.php?id=1` | Delete Vehicle |
 
-Commit your changes
+---
 
-Push and create a Pull Request
+### Vehicle Links
 
-📄 License
-MIT License
+| Method | Endpoint                        | Description            |
+| ------ | ------------------------------- | ---------------------- |
+| GET    | `/api/links.php`                | Get Linked Vehicles    |
+| GET    | `/api/links.php?available=true` | Get Available Vehicles |
+| POST   | `/api/links.php`                | Link Vehicle           |
+| PUT    | `/api/links.php?id=1`           | Update Plate Number    |
+| DELETE | `/api/links.php?id=1`           | Unlink Vehicle         |
 
-Made with ❤️ by NGANJI Heaven's
+---
+
+## 🚀 Future Enhancements
+
+* Vehicle History Tracking
+* Export Reports (PDF/Excel)
+* Role-Based Access Control
+* Email Notifications
+* Audit Logs
+* API Authentication with JWT
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a feature branch
+
+```bash
+git checkout -b feature-name
+```
+
+3. Commit your changes
+
+```bash
+git commit -m "Add new feature"
+```
+
+4. Push to your branch
+
+```bash
+git push origin feature-name
+```
+
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**NGANJI Heaven's**
+
+Made with ❤️ for MAGERWA Vehicle Management.
